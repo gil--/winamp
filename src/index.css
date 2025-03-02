@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Winamp-specific styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Vertical slider styles */
+input[type="range"][orient="vertical"] {
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* Chromium */
+  width: 8px;
+  height: 100px;
+  padding: 0;
+}
+
+/* Slider handle for volume and seek */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 11px;
+  height: 11px;
+  background: #6B6B6B;
+  border: 1px solid #353535;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  background: #6B6B6B;
+  border: 1px solid #353535;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* Slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 8px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: transparent;
+  height: 8px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.winamp-playlist-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.winamp-playlist-content::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+.winamp-playlist-content::-webkit-scrollbar-thumb {
+  background: #5A5A9A;
+}
+
+/* For Firefox */
+.winamp-playlist-content {
+  scrollbar-width: thin;
+  scrollbar-color: #5A5A9A #000000;
+}
+
+/* Custom cursor for draggable elements */
+.winamp-title-bar {
+  cursor: move;
+}
+
+@keyframes marquee {
+  0%, 5% {
+    transform: translateX(0);
+  }
+  95%, 100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+  white-space: nowrap;
+  padding-left: 100%;
+  will-change: transform;
+  animation-delay: 2s;
+}
+
+/* Add a pause on hover effect and smooth transition */
+.animate-marquee:hover {
+  animation-play-state: paused;
+  transition: color 0.2s ease;
+  color: #4CFF4C;
+}
+
+/* Classic Winamp button styles */
+.winamp-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.winamp-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+}
+
+/* Equalizer slider styles */
+.eq-slider {
+  position: relative;
+  width: 14px;
+  height: 100px;
+  background: #000000;
+  border: 1px solid #4B4B4B;
+}
+
+.eq-slider-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #FFFF00;
+  transition: height 0.1s ease;
+}
