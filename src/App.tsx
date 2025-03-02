@@ -243,7 +243,11 @@ function App() {
         <div className="winamp-right-column">
           <Draggable bounds="parent" handle=".winamp-title-bar" nodeRef={visualizerNodeRef}>
             <div ref={visualizerNodeRef}>
-              <Visualizer audioRef={audioRef} isPlaying={isPlaying} />
+              <Visualizer 
+                audioRef={audioRef} 
+                isPlaying={isPlaying}
+                currentSongId={currentSong?.id}
+              />
             </div>
           </Draggable>
         </div>
